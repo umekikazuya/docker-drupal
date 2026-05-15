@@ -1,0 +1,4 @@
+LoadModule expires_module /usr/lib/apache2/modules/mod_expires.so
+LoadModule headers_module /usr/lib/apache2/modules/mod_headers.so
+LoadModule rewrite_module /usr/lib/apache2/modules/mod_rewrite.so
+LoadModule remoteip_module /usr/lib/apache2/modules/mod_remoteip.so

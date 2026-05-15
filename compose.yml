@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: ./Dockerfile
+      target: dev
+    ports:
+      - "${APP_PORT:-8000}:80"
+    environment:
+      - APP_ENV=local
+      - TZ=Asia/Tokyo
+      - HISTFILE=/tmp/.bash_history
+    volumes:
+      - ./app/:/var/www/html
+
+  db:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+    volumes:
+      - db:/var/lib/mysql
+volumes:
+  db:
